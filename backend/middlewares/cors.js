@@ -1,6 +1,8 @@
 const allowedCors = [
   'https://theunstablelord.nomoredomainsmonster.ru',
   'http://theunstablelord.nomoredomainsmonster.ru',
+  'https://api.theunstablelord.nomoredomainsmonster.ru',
+  'http://api.theunstablelord.nomoredomainsmonster.ru',
   'http://localhost:3000',
   'https://localhost:3000',
   'http://localhost:3001',
