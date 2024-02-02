@@ -5,10 +5,10 @@ function checkAnswer(res) {
   return Promise.reject(res.status);
 }
 
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "http://api.theunstablelord.nomoredomainsmonster.ru";
 
 export function registerUser(email, password) {
-  return fetch(`${BASE_URL}/signup`, {
+  return fetch(`${BASE_URL}/sign-up`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -18,7 +18,7 @@ export function registerUser(email, password) {
 }
 
 export function loginUser(email, password) {
-  return fetch(`${BASE_URL}/signin`, {
+  return fetch(`${BASE_URL}/sign-in`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

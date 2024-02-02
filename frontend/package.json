@@ -18,7 +18,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
+    "deploy": "npm run build && scp -r ./build/* theunstablelord@84.201.133.23:/home/theunstablelord/frontend"
   },
   "eslintConfig": {
     "extends": [

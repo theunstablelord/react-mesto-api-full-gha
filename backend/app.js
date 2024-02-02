@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -11,12 +12,14 @@ const {
 const auth = require('./middlewares/auth');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const handleError = require('./middlewares/handleError');
+const cors = require('./middlewares/cors');
 
 const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(bodyParser.json());
 app.use(requestLogger);
+app.use(cors);
 app.get('/crash-test', () => {
   setTimeout(() => {
     throw new Error('Сервер сейчас упадёт');
@@ -32,8 +35,7 @@ app.use(handleError);
 
 mongoose.connect('mongodb://127.0.0.1:27017/mestodb', {
   useNewUrlParser: true,
-  // useCreateIndex: true,
-  // useFindAndModify: false,
+  useUnifiedTopology: true,
 });
 
 app.listen(PORT, () => {
