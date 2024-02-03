@@ -54,8 +54,8 @@ class Api {
       .then(this._checkAnswer);
   }
 
-  deleteCard(data) {
-    return fetch(`${this._baseUrl}/cards/${data._id}`, {
+  deleteCard(id) {
+    return fetch(`${this._baseUrl}/cards/${id}`, {
       method: 'DELETE',
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`,

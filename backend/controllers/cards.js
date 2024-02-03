@@ -32,7 +32,7 @@ module.exports.deleteCard = (req, res, next) => {
     })
     .then((card) => {
       if (card.owner.toString() === req.user._id) {
-        Card.deleteOne(card).then(() => res.status(OK).send(card))
+        Card.deleteOne({ _id: card._id }).then((card) => res.status(OK).send(card));
       } else {
         throw new ForbiddenError('Удаление чужой карточки невозможно');
       }
@@ -56,7 +56,7 @@ module.exports.likeCard = (req, res, next) => {
       } else {
         next(err);
       }
-    })
+    });
 };
 
 module.exports.dislikeCard = (req, res, next) => {
@@ -75,5 +75,5 @@ module.exports.dislikeCard = (req, res, next) => {
       } else {
         next(err);
       }
-    })
+    });
 };
