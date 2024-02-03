@@ -4,6 +4,7 @@ const User = require('../models/user');
 const BadRequest = require('../errors/BadRequest');
 const NotFound = require('../errors/NotFoundError');
 const ConflictError = require('../errors/ConflictError');
+
 const { OK, OBJECT_CREATED } = require('../utils/constants');
 const { NODE_ENV, JWT_SECRET } = process.env;
 
