@@ -37,7 +37,7 @@ function App() {
     auth.registerUser(email, password).then(() => {
       setPopupImage(confirm);
       setPopupTitle("Вы успешно зарегистрировались!");
-      navigate("/sign-in");
+      navigate("/signin");
     }).catch(() => {
       setPopupImage(fail);
       setPopupTitle("Что-то пошло не так! Попробуйте ещё раз.");
@@ -198,7 +198,7 @@ function App() {
   function onSignOut() {
     setIsLoggedIn(false);
     setEmailName(null);
-    navigate("/sign-in");
+    navigate("/signin");
     localStorage.removeItem("jwt");
   }
 
@@ -207,16 +207,16 @@ function App() {
     <CurrentUserContext.Provider value={currentUser}>
       <div className="page">
         <Routes> 
-          <Route path="/sign-in" element={
+          <Route path="/signin" element={
             <>
-            <Header title="Регистрация" route="/sign-up"/>
+            <Header title="Регистрация" route="/signup"/>
             <Login onLogin={onLogin} />
             </>
           }/>
 
-          <Route path="/sign-up" element={
+          <Route path="/signup" element={
             <>
-            <Header title="Войти" route="/sign-in"/>
+            <Header title="Войти" route="/signin"/>
             <Register onRegister={onRegister} />
             </>
           }/>
@@ -239,7 +239,7 @@ function App() {
             </>
           } />
 
-          <Route path="*" element={< Navigate to={isLoggedIn ? "/" : "/sign-in"}/>} />
+          <Route path="*" element={< Navigate to={isLoggedIn ? "/" : "/signin"}/>} />
         </Routes>
 
         <EditProfiePopup 
