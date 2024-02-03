@@ -9,6 +9,6 @@ Cайт размещен на Яндекс.Облаке: https://cloud.yandex.ru
 Ссылки на проект
 IP-адрес 84.201.133.23
 
-Frontend 
+Frontend https://theunstablelord.nomoredomainsmonster.ru
 
-Backend 
+Backend https://api.theunstablelord.nomoredomainsmonster.ru
