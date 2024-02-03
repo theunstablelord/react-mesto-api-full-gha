@@ -5,7 +5,7 @@ function checkAnswer(res) {
   return Promise.reject(res.status);
 }
 
-export const BASE_URL = "http://api.theunstablelord.nomoredomainsmonster.ru";
+export const BASE_URL = "https://api.theunstablelord.nomoredomainsmonster.ru";
 
 export function registerUser(email, password) {
   return fetch(`${BASE_URL}/sign-up`, {

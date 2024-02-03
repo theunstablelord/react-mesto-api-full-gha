@@ -60,7 +60,7 @@ class Api {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
         'Content-type': 'application/json'
-      }
+      },
     })
       .then(this._checkAnswer);
   }
@@ -111,7 +111,7 @@ class Api {
 }
 
 const api = new Api({
-  baseUrl: 'http://api.theunstablelord.nomoredomainsmonster.ru'
+  baseUrl: 'https://api.theunstablelord.nomoredomainsmonster.ru'
 })
 
 export default api;
