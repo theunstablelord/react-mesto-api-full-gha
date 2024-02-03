@@ -71,7 +71,7 @@ class Api {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
         'Content-type': 'application/json'
-      }
+      },
     })
       .then(this._checkAnswer);
   }
@@ -82,7 +82,7 @@ class Api {
       headers: {
         'Authorization': `Bearer ${localStorage.getItem('jwt')}`,
         'Content-type': 'application/json'
-      }
+      },
     })
       .then(this._checkAnswer);
   }

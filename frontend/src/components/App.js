@@ -63,7 +63,7 @@ function App() {
       auth.getToken(jwt).then((res) => {
         if (res) {
           setIsLoggedIn(true);
-          setEmailName(res.data.email);
+          setEmailName(res.user.email);
         }
       }).catch((err) => {
         console.error(err);
@@ -78,11 +78,13 @@ function App() {
   }, [isLoggedIn, navigate]);
 
   useEffect(() => {
-    if (isLoggedIn) {
-      Promise.all([api.getUserInfo(), api.getInitialCards()]).then(([user, cards]) => {
-        setCurrentUser(user);
-        setCards(cards);
-      }).catch((err) => {
+    if (isLoggedIn === true) {
+      Promise.all([api.getUserInfo(), api.getInitialCards()])
+      .then(([user, cards]) => {
+        setCurrentUser(user.user);
+        setCards(cards.reverse());
+      })
+      .catch((err) => {
         console.error(err);
       })
     }
@@ -117,7 +119,7 @@ function App() {
 
   function handleCardDelete(card) {
     api.deleteCard(card).then(() => {
-      setCards((items) => items.filter((c) => c._id !== card._id && c));
+      setCards((items) => items.filter((c) => c !== card && c));
     }).catch((err) => {
       console.error(err);
     });
